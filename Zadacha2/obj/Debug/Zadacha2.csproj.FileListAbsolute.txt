@@ -1,0 +1,6 @@
+C:\Users\Алеша\Documents\Visual Studio 2015\Projects\Zadacha2\Zadacha2\bin\Debug\Zadacha2.exe.config
+C:\Users\Алеша\Documents\Visual Studio 2015\Projects\Zadacha2\Zadacha2\bin\Debug\Zadacha2.exe
+C:\Users\Алеша\Documents\Visual Studio 2015\Projects\Zadacha2\Zadacha2\bin\Debug\Zadacha2.pdb
+C:\Users\Алеша\Documents\Visual Studio 2015\Projects\Zadacha2\Zadacha2\obj\Debug\Zadacha2.csprojResolveAssemblyReference.cache
+C:\Users\Алеша\Documents\Visual Studio 2015\Projects\Zadacha2\Zadacha2\obj\Debug\Zadacha2.exe
+C:\Users\Алеша\Documents\Visual Studio 2015\Projects\Zadacha2\Zadacha2\obj\Debug\Zadacha2.pdb
