@@ -9,48 +9,40 @@ namespace Zadacha2
 {
     class ProductionMode
     {
-        private int _figure;
-        private int _size1, _size2;
         public void CreateFile(int number, string fileName)
         {
             var writeFigure = new StreamWriter(fileName + ".txt", false);
             for (int i = 0; i <= number; i++)
             {
-                _figure = CreateFigure();
-                FigureSize();
-                if (_figure == 2)
+                int figure = CreateFigure();
+                if (figure == 0)
                 {
-                    writeFigure.WriteLine(_figure + " " + _size1 + " " + _size2);
+                    int radius = FigureSize();
+                    writeFigure.WriteLine(figure + " " + radius);
+                }
+                else if (figure == 1)
+                {
+                    int side = FigureSize();
+                    writeFigure.WriteLine(figure + " " + side);
                 }
                 else
                 {
-                    writeFigure.WriteLine(_figure + " " + _size1);
+                    int side1 = FigureSize();
+                    int side2 = FigureSize();
+                    writeFigure.WriteLine(figure + " " + side1 + " " + side2);
                 }
             }
             writeFigure.Close();
         }
+
+        Random rand = new Random();
         private int CreateFigure()
         {
-            var rand = new Random();
             return rand.Next(0, 3);
         }
-
-        private void FigureSize()
+        private int FigureSize()
         {
-            var rand = new Random();
-            if (_figure == 0)
-            {
-                _size1 = rand.Next(1, 101);
-            }
-            else if (_figure == 1)
-            {
-                _size1 = rand.Next(1, 101);
-            }
-            else
-            {
-                _size1 = rand.Next(1, 101);
-                _size2 = rand.Next(1, 101);
-            }
+            return rand.Next(1, 101);
         }
     }
 }
