@@ -13,7 +13,7 @@ namespace Zadacha2
         {
             using (var writeFigure = new StreamWriter(fileName + ".txt", false))
             {
-                for (int i = 0; i <= number; i++)
+                for (int i = 1; i <= number; i++)
                 {
                     var figure = CreateFigure();
                     if (figure == 0)
