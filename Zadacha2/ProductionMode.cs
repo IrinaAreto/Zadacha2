@@ -15,21 +15,21 @@ namespace Zadacha2
             {
                 for (int i = 0; i <= number; i++)
                 {
-                    int figure = CreateFigure();
+                    var figure = CreateFigure();
                     if (figure == 0)
                     {
-                        int radius = FigureSize();
+                        var radius = FigureSize();
                         writeFigure.WriteLine(figure + " " + radius);
                     }
                     else if (figure == 1)
                     {
-                        int side = FigureSize();
+                        var side = FigureSize();
                         writeFigure.WriteLine(figure + " " + side);
                     }
                     else
                     {
-                        int side1 = FigureSize();
-                        int side2 = FigureSize();
+                        var side1 = FigureSize();
+                        var side2 = FigureSize();
                         writeFigure.WriteLine(figure + " " + side1 + " " + side2);
                     }
                 }
