@@ -12,18 +12,11 @@ namespace Zadacha2
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the number of figures: ");
-            var number = 0;
-            while (number <= 0)
-            {
-                int.TryParse(Console.ReadLine(), out number);
-                if (number <= 0)
-                {
-                    Console.WriteLine("You entered the wrong symbol. The number must be greater than zero!\nEnter another number:");
-                }
-            }
+            var number = VerifyNumber();
 
             Console.WriteLine("Enter the name of the file: ");
             var fileName = Convert.ToString(Console.ReadLine());
+            Console.WriteLine(new string('_', 60) + "\n");
 
             var production = new ProductionMode();
             production.CreateFile(number, fileName);
@@ -35,9 +28,32 @@ namespace Zadacha2
                 Console.WriteLine("Figure {0}: area is {1}, perimeter is {2}", figure.Name, figure.Area, figure.Perimeter);
             }
             Console.WriteLine("  Total: circles:    {0} \n \t triangles:  {1} \n\t rectangles: {2}", analysis.circle, analysis.triangle, analysis.rectangle);
-            Console.WriteLine(new string('_', 50));
+            Console.WriteLine(new string('_', 60));
 
-            Console.WriteLine("Choose the number of figure type to see total information:\n   1. Circle \n   2. Triangle \n   3. Rectangle ");
+            Console.WriteLine("\nChoose the number of figure type to see total information:\n   1. Circle \n   2. Triangle \n   3. Rectangle \n");
+            var figureType = VerifyType();
+            Console.WriteLine("Total area is:      {0}", analysis.GetTotalArea(figureType));
+            Console.WriteLine("Total perimeter is: {0}", analysis.GetTotalPerimeter(figureType));
+
+            Console.ReadKey();
+        }
+
+        static private int VerifyNumber()
+        {
+            var number = 0;
+            while (number <= 0)
+            {
+                int.TryParse(Console.ReadLine(), out number);
+                if (number <= 0)
+                {
+                    Console.WriteLine("You entered the wrong symbol. The number must be greater than zero!\nEnter another number:");
+                }
+            }
+            return number;
+        }
+
+        static private int VerifyType()
+        {
             var figureType = 0;
             while (figureType < 1 || figureType > 3)
             {
@@ -47,10 +63,7 @@ namespace Zadacha2
                     Console.WriteLine("Wrong number! Enter 1, 2 or 3!");
                 }
             }
-            Console.WriteLine("Total area is:      {0}", analysis.GetTotalArea(figureType));
-            Console.WriteLine("Total perimeter is: {0}", analysis.GetTotalPerimeter(figureType));                
-            
-            Console.ReadKey();
+            return figureType;
         }
     }
 }
