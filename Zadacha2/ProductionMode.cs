@@ -11,28 +11,29 @@ namespace Zadacha2
     {
         public void CreateFile(int number, string fileName)
         {
-            var writeFigure = new StreamWriter(fileName + ".txt", false);
-            for (int i = 0; i <= number; i++)
+            using (var writeFigure = new StreamWriter(fileName + ".txt", false))
             {
-                int figure = CreateFigure();
-                if (figure == 0)
+                for (int i = 0; i <= number; i++)
                 {
-                    int radius = FigureSize();
-                    writeFigure.WriteLine(figure + " " + radius);
-                }
-                else if (figure == 1)
-                {
-                    int side = FigureSize();
-                    writeFigure.WriteLine(figure + " " + side);
-                }
-                else
-                {
-                    int side1 = FigureSize();
-                    int side2 = FigureSize();
-                    writeFigure.WriteLine(figure + " " + side1 + " " + side2);
+                    int figure = CreateFigure();
+                    if (figure == 0)
+                    {
+                        int radius = FigureSize();
+                        writeFigure.WriteLine(figure + " " + radius);
+                    }
+                    else if (figure == 1)
+                    {
+                        int side = FigureSize();
+                        writeFigure.WriteLine(figure + " " + side);
+                    }
+                    else
+                    {
+                        int side1 = FigureSize();
+                        int side2 = FigureSize();
+                        writeFigure.WriteLine(figure + " " + side1 + " " + side2);
+                    }
                 }
             }
-            writeFigure.Close();
         }
 
         Random rand = new Random();
