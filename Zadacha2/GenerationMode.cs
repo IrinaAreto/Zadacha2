@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Zadacha2
 {
-    class ProductionMode
+    class GenerationMode
     {
-        public void CreateFile(int number, string fileName)
+        public void Generate(int number, string fileName)
         {
             using (var writeFigure = new StreamWriter(fileName + ".txt", false))
             {

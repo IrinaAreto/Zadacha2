@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,38 @@ namespace Zadacha2
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Choose the mode: 1. Generation  or 2. Analysis");
+            var mode = 0;
+            int.TryParse(Console.ReadLine(), out mode);
+            if (mode == 1)
+            {
+                Generate();
+                Console.WriteLine("File created!");
+                Console.WriteLine("Would you like to analyse file?\n  1.yes  2.no");
+                var mode2 = 0;
+                int.TryParse(Console.ReadLine(), out mode2);
+                if (mode2 == 1)
+                {
+                    Analyse();
+                }
+                else
+                {
+                    Console.WriteLine("Good bye!");
+                }
+            }
+            else if (mode == 2)
+            {
+                Analyse();
+            }
+            else
+            {
+                Console.WriteLine("You have entered a wrong number!");
+            }
+            Console.ReadKey();
+        }
+
+        static private void Generate()
+        {
             Console.WriteLine("Enter the number of figures: ");
             var number = VerifyNumber();
 
@@ -18,8 +52,19 @@ namespace Zadacha2
             var fileName = Convert.ToString(Console.ReadLine());
             Console.WriteLine(new string('_', 60) + "\n");
 
-            var production = new ProductionMode();
-            production.CreateFile(number, fileName);
+            var generation = new GenerationMode();
+            generation.Generate(number, fileName);
+        }
+
+        static private void Analyse()
+        {
+            Console.WriteLine("Enter the name of the file to analyse it's data: ");
+            var fileName = Convert.ToString(Console.ReadLine());
+            if (File.Exists(fileName + ".txt") == false)
+            {
+                Console.WriteLine("File with this name does not exists!");
+                return;
+            }
 
             var analysis = new AnalysisMode();
             var figuresList = analysis.GetFigures(fileName);
@@ -34,8 +79,6 @@ namespace Zadacha2
             var figureType = VerifyType();
             Console.WriteLine("Total area is:      {0}", analysis.GetTotalArea(figureType));
             Console.WriteLine("Total perimeter is: {0}", analysis.GetTotalPerimeter(figureType));
-
-            Console.ReadKey();
         }
 
         static private int VerifyNumber()
@@ -46,7 +89,7 @@ namespace Zadacha2
                 int.TryParse(Console.ReadLine(), out number);
                 if (number <= 0)
                 {
-                    Console.WriteLine("You entered the wrong symbol. The number must be greater than zero!\nEnter another number:");
+                    Console.WriteLine("You have entered the wrong symbol. The number must be greater than zero!\nEnter another number:");
                 }
             }
             return number;

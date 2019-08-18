@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="AnalysisMode.cs" />
     <Compile Include="FigureResults.cs" />
-    <Compile Include="ProductionMode.cs" />
+    <Compile Include="GenerationMode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -9,7 +9,7 @@ namespace Zadacha2
 {
     class AnalysisMode
     {
-        public List<FigureResults> figuresList = new List<FigureResults>();
+        public List<FigureResults> FiguresList = new List<FigureResults>();
         public int circle = 0;
         public int triangle = 0;
         public int rectangle = 0;
@@ -23,21 +23,21 @@ namespace Zadacha2
                     var figure = Array.ConvertAll(line.Split(), int.Parse);
                     if (figure[0] == 0)
                     {
-                        figuresList.Add(new FigureResults() { Name = "Circle", Area = GetCircleArea(figure[1]), Perimeter = GetCirclePerimeter(figure[1]) });
+                        FiguresList.Add(new FigureResults() { Name = "Circle", Area = GetCircleArea(figure[1]), Perimeter = GetCirclePerimeter(figure[1]) });
                         circle++;
                     }
                     else if (figure[0] == 1)
                     {
-                        figuresList.Add(new FigureResults() { Name = "Triangle", Area = GetTriangleArea(figure[1]), Perimeter = GetTrianglePerimeter(figure[1]) });
+                        FiguresList.Add(new FigureResults() { Name = "Triangle", Area = GetTriangleArea(figure[1]), Perimeter = GetTrianglePerimeter(figure[1]) });
                         triangle++;
                     }
                     else
                     {
-                        figuresList.Add(new FigureResults() { Name = "Rectangle", Area = GetRectangleArea(figure[1], figure[2]), Perimeter = GetRectanglePerimeter(figure[1], figure[2]) });
+                        FiguresList.Add(new FigureResults() { Name = "Rectangle", Area = GetRectangleArea(figure[1], figure[2]), Perimeter = GetRectanglePerimeter(figure[1], figure[2]) });
                         rectangle++;
                     }
                 }
-                return figuresList;
+                return FiguresList;
             }
         }
         private double GetCircleArea(int radius)
@@ -74,7 +74,7 @@ namespace Zadacha2
             double sumArea = 0;
             if (figureType == 1)
             {
-                foreach (var item in figuresList)
+                foreach (var item in FiguresList)
                 {
                     if (item.Name == "Circle")
                     {
@@ -85,7 +85,7 @@ namespace Zadacha2
             }
             else if (figureType == 2)
             {
-                foreach (var item in figuresList)
+                foreach (var item in FiguresList)
                 {
                     if (item.Name == "Triangle")
                     {
@@ -96,7 +96,7 @@ namespace Zadacha2
             }
             else
             {
-                foreach (var item in figuresList)
+                foreach (var item in FiguresList)
                 {
                     if (item.Name == "Rectangle")
                     {
@@ -112,7 +112,7 @@ namespace Zadacha2
             double sumPerimeter = 0;
             if (figureType == 1)
             {
-                foreach (var item in figuresList)
+                foreach (var item in FiguresList)
                 {
                     if (item.Name == "Circle")
                     {
@@ -123,7 +123,7 @@ namespace Zadacha2
             }
             else if (figureType == 2)
             {
-                foreach (var item in figuresList)
+                foreach (var item in FiguresList)
                 {
                     if (item.Name == "Triangle")
                     {
@@ -134,7 +134,7 @@ namespace Zadacha2
             }
             else
             {
-                foreach (var item in figuresList)
+                foreach (var item in FiguresList)
                 {
                     if (item.Name == "Rectangle")
                     {
