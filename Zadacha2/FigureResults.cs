@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zadacha2
 {
-    class FigureResults
+    struct FigureResults
     {
         public string Name { get; set; }
         public double Area { get; set; }
